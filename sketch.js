@@ -7,7 +7,7 @@ let flower3;
 
 function preload() {
  // photos = loadImage('Img/220320.jpg');
-  flower1 = loadModel('Img/flower_0402_1.obj');
+  flower1 = loadModel('Img/coconut.obj');
   flower2 = loadModel('Img/flower_0402_2.obj');
   flower3 = loadModel('Img/flower_0402_3.obj');
 }
@@ -16,7 +16,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   camView = createCamera();
-  camView.setPosition(0, 0, 800);
+  camView.setPosition(0, 0, 0);
   camView.lookAt(0, 0, 0);
   
   //camView.ortho(windowWidth / 2, -windowWidth / 2, -windowHeight / 2, windowHeight / 2, 0, 4000);
@@ -40,8 +40,8 @@ function draw() {
   directionalLight(255, 255, 0, -dirX, -dirY, -1);
 
   //orbitControl();
-  camView.setPosition(cos(angle)*800, 200, sin(angle)*800);
-  camView.lookAt(0, 0, 0);
+  camView.setPosition(cos(angle)*1000, -400, sin(angle)*1000);
+  camView.lookAt(0, -200, 0);
   angle += 0.002;
   
 
@@ -51,7 +51,7 @@ function draw() {
   texture(cam);
   
   push();
-  scale(37);
+  scale(4);
   smooth();
   translate(-1,17,-2);
   rotateX(PI);
@@ -59,23 +59,7 @@ function draw() {
   model(flower1);
   pop();
 
-  push();
-  scale(50);
-  smooth();
-  translate(0,13.5,0);
-  rotateX(PI);
-  rotateY(PI*8/9);
-  model(flower2);
-  pop()
 
-  push();
-  scale(40);
-  smooth();
-  translate(1,21,1.5);
-  rotateX(PI);
-  rotateY(PI*9/12);
-  model(flower3);
-  pop()
   //rotateY(mouseX/60);
   
 
