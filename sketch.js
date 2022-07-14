@@ -1,15 +1,12 @@
 let angle = 0;
-//let photos;
+let backgroundImg;
 let cam;
-let flower1;
-let flower2;
-let flower3;
+let coconut;
+
 
 function preload() {
- // photos = loadImage('Img/220320.jpg');
-  flower1 = loadModel('Img/coconut.obj');
-  flower2 = loadModel('Img/flower_0402_2.obj');
-  flower3 = loadModel('Img/flower_0402_3.obj');
+  backgroundImg = loadImage('Img/coconut-beach.jpg');
+  coconut = loadModel('Img/coconut.obj');
 }
 
 
@@ -19,15 +16,15 @@ function setup() {
   camView.setPosition(0, 0, 0);
   camView.lookAt(0, 0, 0);
   
-  //camView.ortho(windowWidth / 2, -windowWidth / 2, -windowHeight / 2, windowHeight / 2, 0, 4000);
-  camView.perspective(1, windowWidth/windowHeight, 0, 2000);
+  camView.ortho(windowWidth / 2, -windowWidth / 2, -windowHeight / 2, windowHeight / 2, 0, 4000);
+  // camView.perspective(1, windowWidth/windowHeight, 0, 2000);
 
   cam = createCapture(VIDEO);
   cam.hide();
 }
 
 function draw() {
-  background(17,15,30);
+   background(17,15,30);
   
   let dirX = (mouseX / width - 0.5) * 2;
   let dirY = (mouseY / height - 0.5) * 2;
@@ -40,10 +37,16 @@ function draw() {
   directionalLight(255, 255, 0, -dirX, -dirY, -1);
 
   //orbitControl();
-  camView.setPosition(cos(angle)*1000, -400, sin(angle)*1000);
-  camView.lookAt(0, -200, 0);
-  angle += 0.002;
+  // camView.setPosition(cos(angle)*1000, -400, sin(angle)*1000);
+  camView.setPosition(0, 0, 1600);
+  camView.lookAt(0, 0, 0);
+  //angle += 0.002;
   
+  push();
+  //rotateZ(PI/2);
+  imageMode(CENTER);
+  image(backgroundImg,0,0,windowWidth,windowHeight);
+  pop();
 
   //noStroke();
   stroke(255);
@@ -51,17 +54,17 @@ function draw() {
   texture(cam);
   
   push();
-  scale(4);
+  scale(4.5);
   smooth();
-  translate(-1,17,-2);
+  translate(windowWidth/20,110,100);
   rotateX(PI);
-  rotateY(PI*7/6);
-  model(flower1);
+  rotateY(angle/2);
+  model(coconut);
   pop();
 
 
   //rotateY(mouseX/60);
   
 
-  //angle += 0.01;
+  angle += 0.01;
 }
