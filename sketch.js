@@ -5,8 +5,8 @@ let coconut;
 
 
 function preload() {
-  backgroundImg = loadImage('Img/coconut-beach.jpg');
-  coconut = loadModel('Img/coconut.obj');
+  backgroundImg = loadImage('Img/DSC2528.jpg');
+  coconut = loadModel('Img/coconut0721.obj');
 }
 
 
@@ -32,39 +32,33 @@ function draw() {
   //ortho(windowWidth / 2, -windowWidth / 2, -windowHeight / 2, windowHeight / 2, 0, 4000);
   //perspective(1, windowWidth/windowHeight, 0, 1000);
 
+  ambientLight(180,255,180);
+  directionalLight(255, 255, 255, -dirX, -dirY, -1);
 
-  ambientLight(100,150,255);
-  directionalLight(255, 255, 0, -dirX, -dirY, -1);
-
-  //orbitControl();
-  // camView.setPosition(cos(angle)*1000, -400, sin(angle)*1000);
-  camView.setPosition(0, 0, 1600);
+  camView.setPosition(0, 0, -1600);
   camView.lookAt(0, 0, 0);
-  //angle += 0.002;
   
   push();
-  //rotateZ(PI/2);
   imageMode(CENTER);
   image(backgroundImg,0,0,windowWidth,windowHeight);
   pop();
 
+
   //noStroke();
   stroke(255);
-  strokeWeight(0.3);
+  strokeWeight(0);
   texture(cam);
   
   push();
-  scale(4.5);
+  scale(18);
   smooth();
-  translate(windowWidth/20,110,100);
+  translate(-windowWidth/70,42,-50);
   rotateX(PI);
   rotateY(angle/2);
   model(coconut);
   pop();
 
-
   //rotateY(mouseX/60);
   
-
   angle += 0.01;
 }
