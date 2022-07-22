@@ -2,11 +2,13 @@ let angle = 0;
 let backgroundImg;
 let cam;
 let coconut;
+let boxs;
 
 
 function preload() {
   backgroundImg = loadImage('Img/bkDSC2528.jpg');
   coconut = loadModel('Img/coconut0721.obj');
+  boxs = loadModel('Img/cube.obj');
 }
 
 
@@ -38,10 +40,18 @@ function draw() {
   camView.setPosition(0, 0, -1600);
   camView.lookAt(0, 0, 0);
   
+  // push();
+  // texture(backgroundImg);
+  // rotateY(PI);
+  // box(-windowWidth,windowHeight,100);
+  // pop();
+
   push();
   texture(backgroundImg);
-  rotateY(PI);
-  box(-windowWidth,windowHeight,100);
+  rotateX(PI);
+  rotateZ(PI/2);
+  scale(-windowHeight/2,-windowWidth/2,100);
+  model(boxs);
   pop();
 
 
@@ -52,9 +62,9 @@ function draw() {
   texture(cam);
   
   push();
-  scale(20);
+  scale(14);
   smooth();
-  translate(-windowWidth/70,42,-50);
+  translate(-windowWidth/55,42,-50);
   rotateX(PI);
   rotateY(angle/2);
   model(coconut);

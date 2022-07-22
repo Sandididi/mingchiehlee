@@ -56,7 +56,7 @@ function draw() {
   rotateZ(0.5);
   translate(80,0,500);
   push();
-  scale(23);
+  scale(18);
   smooth();
   translate(-windowWidth/70,42,-50);
   rotateX(PI);
