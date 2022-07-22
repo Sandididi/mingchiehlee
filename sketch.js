@@ -40,7 +40,8 @@ function draw() {
   
   push();
   texture(backgroundImg);
-  plane(windowWidth,windowHeight);
+  rotateY(PI);
+  box(-windowWidth,windowHeight,10);
   pop();
 
 

@@ -43,7 +43,8 @@ function draw() {
   rotateX(PI/5.5);
   translate(330,-812);
   texture(backgroundImg);
-  plane(windowWidth,windowHeight);
+  rotateY(PI);
+  box(-windowWidth,windowHeight,10);
   pop();
 
 
