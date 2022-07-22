@@ -5,7 +5,7 @@ let coconut;
 
 
 function preload() {
-  backgroundImg = loadImage('Img/DSC2528.jpg');
+  backgroundImg = loadImage('Img/bkDSC2528.jpg');
   coconut = loadModel('Img/coconut0721.obj');
 }
 
@@ -24,7 +24,7 @@ function setup() {
 }
 
 function draw() {
-   background(17,15,30);
+  background(17,15,30);
   
   let dirX = (mouseX / width - 0.5) * 2;
   let dirY = (mouseY / height - 0.5) * 2;
@@ -32,25 +32,26 @@ function draw() {
   //ortho(windowWidth / 2, -windowWidth / 2, -windowHeight / 2, windowHeight / 2, 0, 4000);
   //perspective(1, windowWidth/windowHeight, 0, 1000);
 
-  ambientLight(180,255,180);
-  directionalLight(255, 255, 255, -dirX, -dirY, -1);
+  ambientLight(255,255,255);
+  //directionalLight(255, 255, 255, -dirX, -dirY, -1);
 
   camView.setPosition(0, 0, -1600);
   camView.lookAt(0, 0, 0);
   
   push();
-  imageMode(CENTER);
-  image(backgroundImg,0,0,windowWidth,windowHeight);
+  texture(backgroundImg);
+  plane(windowWidth,windowHeight);
   pop();
 
 
   //noStroke();
   stroke(255);
   strokeWeight(0);
+  tint(180,255,180);
   texture(cam);
   
   push();
-  scale(18);
+  scale(20);
   smooth();
   translate(-windowWidth/70,42,-50);
   rotateX(PI);

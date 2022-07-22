@@ -39,10 +39,11 @@ function draw() {
   camView.lookAt(300, -1000, -150);
   
   push();
-  imageMode(CENTER);
   rotateY(PI/8);
   rotateX(PI/5.5);
-  image(backgroundImg,335,-812,windowWidth,windowHeight*1.02);
+  translate(330,-812);
+  texture(backgroundImg);
+  plane(windowWidth,windowHeight);
   pop();
 
 
