@@ -41,7 +41,7 @@ function draw() {
   push();
   texture(backgroundImg);
   rotateY(PI);
-  box(-windowWidth,windowHeight,10);
+  box(-windowWidth,windowHeight,100);
   pop();
 
 
