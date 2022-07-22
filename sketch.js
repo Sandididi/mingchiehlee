@@ -6,7 +6,7 @@ let boxs;
 
 
 function preload() {
-  backgroundImg = loadImage('Img/bkDSC2528.jpg');
+  backgroundImg = loadImage('Img/coco_sky.jpg');
   coconut = loadModel('Img/coconut0721.obj');
   boxs = loadModel('Img/cube.obj');
 }
@@ -35,7 +35,8 @@ function draw() {
   //perspective(1, windowWidth/windowHeight, 0, 1000);
 
   ambientLight(255,255,255);
-  //directionalLight(255, 255, 255, -dirX, -dirY, -1);
+  directionalLight(255, 255, 200, -dirX, -dirY, -1);
+  //directionalLight(255, 255, 200, 0, 0, -50);
 
   camView.setPosition(0, 0, -1600);
   camView.lookAt(0, 0, 0);
@@ -58,13 +59,13 @@ function draw() {
   //noStroke();
   stroke(255);
   strokeWeight(0);
-  tint(180,255,180);
+  tint(255,255,100);
   texture(cam);
   
   push();
-  scale(14);
+  scale(15);
   smooth();
-  translate(-windowWidth/55,42,-50);
+  translate(0,42,-50);
   rotateX(PI);
   rotateY(angle/2);
   model(coconut);
